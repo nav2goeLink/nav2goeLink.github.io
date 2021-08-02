@@ -254,9 +254,8 @@ p {
   justify-content: center;
 }
 
-#containerConnectionButton {
+.containerConnectionButton {
   display: flex;
-
   justify-content: flex-end;
 }
 
@@ -346,12 +345,16 @@ a {
   .container-ConnectionDisplay .verbindung-textfeld {
     /* width: 120px; */
     /* height: 60px; */
-    width: auto;
-    height: auto;
+    width: 135px;
+    height: 130px;
     font-size: medium;
     margin: 15px 10px;
     padding: auto;
     text-align: center;
+  }
+  .verbindung-textfeld:nth-child(2){
+    width: auto;
+    height: auto;
   }
   .container-ConnectionDisplay .verbindung-textfeld:nth-child(1) {
     order: 4;
@@ -484,7 +487,7 @@ a {
   #containerFastestConnection *:last-child {
     margin-left: 1rem;
   }
-  #containerConnectionButton {
+  .containerConnectionButton {
     justify-content: center;
   }
   .backToSearchButton {

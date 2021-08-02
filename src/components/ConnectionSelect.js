@@ -101,7 +101,7 @@ const ConnectionSelect = (props) => {
                 {timeMinCheapRandomizer(durationCheapMin)};
                 {timeHourCheapRandomizer(durationHour)}; */}
               <h2>Günstigste Verbindung</h2>
-              <div id="containerCheapestConnection">
+              <div id="containerFastestConnection">
                 <div className="verbindung-textfeld">
                     Fahrtkosten: { (Fahrtkostenrechner(FahrtkostenGuenstig))} .00 € </div>
                 <div className="verbindung-textfeld">Dauer: {displayedDurations[0]} h {displayedDurations[1]} min</div>
@@ -138,8 +138,10 @@ const ConnectionSelect = (props) => {
           }
             /> 
             ) : ( lowerButtonFirstPressed? null : (
-              <div className="connectionChoice">
-                <button onClick={() => {
+              <div className="connectionChoice containerConnectionButton">
+                <button
+                className="button-select"
+                 onClick={() => {
                   setCheaperConnectionStarted(true); 
                   setUpperButtonFirstPressed(true);
                   setHideConnectionSelect(true); }}>
@@ -187,21 +189,24 @@ const ConnectionSelect = (props) => {
           }
             />
             ) : ( upperButtonFirstPressed? null : (
-            <div className="connectionChoice">
-              <div id="containerFastestConnection">
-                <button onClick={() => { 
+            <div className="connectionChoice containerConnectionButton">
+              
+                <button
+                className="button-select"
+                 onClick={() => { 
                     setFasterConnectionStarted(true);  
                     setLowerButtonFirstPressed(true);
                     setHideConnectionSelect(true); }} >
                   {" "}
                   Route starten{" "}
                 </button>
-              </div>
+              
             </div>))
         }
         {hideConnectionSelect? null : (
           backToSearchPageClicked ? ( <SearchPage/> ) : (
             <button 
+            className="backToSearchButton"
               onClick={() => {setBackToSearchPageClicked(true);  setHideConnectionSelect(true); props.onGoBack(); } }
             >
               {" "}
