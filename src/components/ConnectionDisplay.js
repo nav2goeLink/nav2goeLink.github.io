@@ -321,7 +321,7 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
                   <p>Abfahrt an Haltestelle:</p> Weender Straße-Ost {" "}
                 </div>
                 <div className="busIcon">
-                <FaBus size="3rem" color="white" />s
+                <FaBus size="3rem" color="white" />
                   </div>
                 <div className="verbindung-textfeld">
                   <p>Ankunft an Haltestelle:</p> {props.destinationStop}{" "}
