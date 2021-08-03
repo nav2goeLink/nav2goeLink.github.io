@@ -104,12 +104,10 @@ const ConnectionSelect = (props) => {
               <div id="containerFastestConnection">
                 <div className="verbindung-textfeld">
                     Fahrtkosten: { (Fahrtkostenrechner(FahrtkostenGuenstig))} .00 € </div>
-                <div className="verbindung-textfeld">Dauer: {displayedDurations[0]} h {displayedDurations[1]} min</div>
-                <div className="verbindung-textfeld">Umstiege 2</div>
+                <div className="verbindung-textfeld">Dauer:  {displayedDurations[0]} h {displayedDurations[1]} min</div>
+                <div className="verbindung-textfeld">Umstiege: 1</div>
                 <div className="umstiegIcons">
                 <FaBus size="3rem" color="white" />
-                <BsArrowRight size="3rem" color="white" />
-                <GiKickScooter size="3rem" color="white" />
                 <BsArrowRight size="3rem" color="white" />
                 <FaBus size="3rem" color="white" />
               </div>
@@ -117,7 +115,7 @@ const ConnectionSelect = (props) => {
             </div>
           </div>)
       }
-      {cheaperConnectionStarted  ? (
+      {fasterConnectionStarted  ? (
             <ConnectionDisplay
             onSetStartFormHidden = {props.onSetStartFormHidden}
             departureStop={props.departureStop}
@@ -142,7 +140,7 @@ const ConnectionSelect = (props) => {
                 <button
                 className="button-select"
                  onClick={() => {
-                  setCheaperConnectionStarted(true); 
+                  setFasterConnectionStarted(true); 
                   setUpperButtonFirstPressed(true);
                   setHideConnectionSelect(true); }}>
                   {" "}
@@ -159,16 +157,18 @@ const ConnectionSelect = (props) => {
               Fahrtkosten: {Fahrtkostenrechner(FahrtkostenGuenstig)} .00 € </div>
                {/* Fahrtkosten: {Fahrtkostenrechner(FahrtkostenGuenstig)}.00 €</div> */}
             <div className="verbindung-textfeld">Dauer: {displayedDurations[2]} h {displayedDurations[3]} min </div>
-            <div className="verbindung-textfeld">Umstiege 1</div>
+            <div className="verbindung-textfeld">Umstiege: 2</div>
             <div className="umstiegIcons">
-                <FaBus size="3rem" color="white" />
+              <FaBus size="3rem" color="white" />
+                <BsArrowRight size="3rem" color="white" />
+                <GiKickScooter size="3rem" color="white" />
                 <BsArrowRight size="3rem" color="white" />
                 <FaBus size="3rem" color="white" />
             </div>
           </div>
         </div> )
     }
-      {fasterConnectionStarted  ? (
+      {cheaperConnectionStarted  ? (
         <ConnectionDisplay
             onSetStartFormHidden = {props.onSetStartFormHidden}
             departureStop={props.departureStop}
@@ -194,7 +194,7 @@ const ConnectionSelect = (props) => {
                 <button
                 className="button-select"
                  onClick={() => { 
-                    setFasterConnectionStarted(true);  
+                    setCheaperConnectionStarted(true);  
                     setLowerButtonFirstPressed(true);
                     setHideConnectionSelect(true); }} >
                   {" "}
