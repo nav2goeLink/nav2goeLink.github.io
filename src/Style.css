@@ -324,6 +324,7 @@ a {
 .ErrorPageTitle h2 {
   text-align: center;
   color: darkred;
+  padding-bottom: 1rem;
 }
 .ErrorPageTitle p {
   background: rgb(95, 94, 94);
@@ -331,7 +332,9 @@ a {
 }
 .ErrorPageTitle footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
 }
 .ErrorPageTitle button {
   width: 150px;
