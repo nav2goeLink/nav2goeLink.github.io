@@ -19,7 +19,7 @@ const SearchPage = (props) => {
   const [hideSearchFields, setHideSearchFields] = useState(false);
   const departureInputRef = useRef();
   const destinationInputRef = useRef();
-  const [loadingMessage, setloadingMessage] = useState(true);
+  // const [loadingMessage, setloadingMessage] = useState(true);
 
   let errorOccured = false;
 
@@ -43,14 +43,14 @@ const SearchPage = (props) => {
         title: "Falsche Daten",
         message: "Bitte geben Sie einen passenden Start- und Zielort ein!",
       });
-      return (errorOccured = false);  // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
+      return (errorOccured = true);  // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
     }
     if (departureTime === "" || departureDay === "") {
       setError({
         title: "Falsche Daten",
         message: "Bitte geben Sie einen Abfahrtstag und eine Abfahrtszeit an!",
       });
-      return (errorOccured = false); // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
+      return (errorOccured = true); // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
     }
   };
 
@@ -98,12 +98,12 @@ const SearchPage = (props) => {
   };
 
    // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
- useEffect(() => {
-  const timer = setTimeout(() => {
- setloadingMessage(false);
-  }, 1000);
-  return () => clearTimeout(timer);
-}, []);
+//  useEffect(() => {
+//   const timer = setTimeout(() => {
+//  setloadingMessage(false);
+//   }, 1000);
+//   return () => clearTimeout(timer);
+// }, []);
 
   return (
     <React.Fragment>
@@ -153,7 +153,7 @@ const SearchPage = (props) => {
         </div>
       )}
       <div>
-        {searchClicked ? ( (loadingMessage? <p>...loading...</p> : 
+        {searchClicked ? (  
           <ConnectionSelect
             onSetStartFormHidden={props.onSetStartFormHidden}
             onGoBack={() => {
@@ -164,7 +164,7 @@ const SearchPage = (props) => {
             destinationStop={destinationStop}
             departureDay={departureDay}
             departureTime={departureTime}
-          />)
+          />
         ) : (
           <div className="buttons-search-page">
             <button

@@ -129,7 +129,7 @@ const outputWithoutYear= (date) => {
 
 const ConnectionDisplay = (props) => {
   const [clickedEnd, setEndClicked] = useState(false);
-  const [hideConnectionDisplay, setHideConnectionDisplay] = useState(true);
+  const [hideConnectionDisplay, setHideConnectionDisplay] = useState(false);
   const [loadingMessage, setloadingMessage] = useState(true);
   const [changeDay, setChangeDay] = useState(false);
 
@@ -141,14 +141,14 @@ const ConnectionDisplay = (props) => {
   const endClickHandler = () => {
     setEndClicked(true);
   };
-// ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
-  useEffect(() => {
-    const timer = setTimeout(() => {
-   setHideConnectionDisplay(false);
-   setloadingMessage(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+// // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//    setHideConnectionDisplay(false);
+//    setloadingMessage(false);
+//     }, 1000);
+//     return () => clearTimeout(timer);
+//   }, []);
 
 //   --------------------------(nicht ganz so wichtige) Ideen für Eingabezeit + paar Sekunden als Losfahrzeit anzeigen--------------------
 
@@ -199,7 +199,9 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
       ) : ( 
         <div className="container-verbindung">
           {/* {endClickHandler ? null:  */}
-          {hideConnectionDisplay ? (loadingMessage? <p>...loading...</p> : null) : (
+          {hideConnectionDisplay ? null
+          // (loadingMessage? <p>...loading...</p> : null) 
+          : (
             <form>
               <h1 className="Verbindung-header">Verbindung</h1>
               {/* <Bild/> 
@@ -296,7 +298,9 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
       ) : (
         <div className="container-verbindung">
           {/* {endClickHandler ? null:  */}
-          {hideConnectionDisplay ? (loadingMessage? <p>...loading...</p> : null) : (
+          {hideConnectionDisplay ? null
+          // (loadingMessage? <p>...loading...</p> : null)
+           : (
             <form>
               <h1 className="Verbindung-header">Verbindung</h1>
               {/* <Bild/> 

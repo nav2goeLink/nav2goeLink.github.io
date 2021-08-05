@@ -35,13 +35,13 @@ const durations = () => {
 const ConnectionSelect = (props) => {
   const [cheaperConnectionStarted , setCheaperConnectionStarted] = useState(false);
   const [fasterConnectionStarted, setFasterConnectionStarted] = useState(false);
-  const [backToSearchPageClicked , setBackToSearchPageClicked] = useState(false);
-  const [hideConnectionSelect, setHideConnectionSelect] = useState(true);
+  const [backToSearchPageClicked , setBackToSearchPageClicked] = useState(true);
+  const [hideConnectionSelect, setHideConnectionSelect] = useState(false);
   const [upperButtonFirstPressed, setUpperButtonFirstPressed] = useState(false);
   const [lowerButtonFirstPressed, setLowerButtonFirstPressed] = useState(false);
    const[displayedDurations, setDisplayedDurations] = useState(durations());
   const [additionalRandomMinutes, setAdditionalRandomMinutes] = useState( Number(Math.round(Math.random() * (9 - 3)) + 3 ) ); 
-  const [loadingMessage, setloadingMessage] = useState(true);
+  // const [loadingMessage, setloadingMessage] = useState(true);
 
   const backClickHandler = () => {
     props.onGoBack();
@@ -86,13 +86,13 @@ const ConnectionSelect = (props) => {
  console.log("daparture day." + props.departureDay.toString());
 
  // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
- useEffect(() => {
-  const timer = setTimeout(() => {
- setHideConnectionSelect(false);
- setloadingMessage(false);
-  }, 1000);
-  return () => clearTimeout(timer);
-}, []);
+//  useEffect(() => {
+//   const timer = setTimeout(() => {
+//  setHideConnectionSelect(false);
+//  setloadingMessage(false);
+//   }, 1000);
+//   return () => clearTimeout(timer);
+// }, []);
 
 
  var newDate = new Date( (props.departureDay) + 1 * 86400000 );
@@ -103,7 +103,9 @@ const ConnectionSelect = (props) => {
   return (
     <div> 
       <form>
-        {hideConnectionSelect? (loadingMessage? <p>...loading...</p> : null)  : ( 
+        {hideConnectionSelect? null :
+          // loadingMessage? <p>...loading...</p> : null)  
+           ( 
           <div>   
             <h1 className="logo">Nav2Gö</h1>
             <h1>Verbindungsauswahl</h1>
@@ -125,7 +127,7 @@ const ConnectionSelect = (props) => {
               </div>
               </div>
             </div>
-          </div>)
+          </div> )
       }
       {fasterConnectionStarted  ? (
             <ConnectionDisplay
@@ -147,7 +149,8 @@ const ConnectionSelect = (props) => {
               setLowerButtonFirstPressed(false);}
           }
             /> 
-            ) : ( lowerButtonFirstPressed? null : (loadingMessage? null : 
+            ) : ( lowerButtonFirstPressed? null :
+              //  (loadingMessage? null : 
               <div className="connectionChoice containerConnectionButton">
                 <button
                 className="button-select"
@@ -158,7 +161,8 @@ const ConnectionSelect = (props) => {
                   {" "}
                   Route starten{" "}
                 </button> 
-              </div>) )
+              </div>) 
+              // )
         }
       </form>
     {hideConnectionSelect? null : (
@@ -200,7 +204,8 @@ const ConnectionSelect = (props) => {
               setLowerButtonFirstPressed(false);}
           }
             />
-            ) : ( upperButtonFirstPressed? null :  (loadingMessage? null : 
+            ) : ( upperButtonFirstPressed? null :  
+              // (loadingMessage? null : 
             <div className="connectionChoice containerConnectionButton">
               
                 <button
@@ -213,7 +218,8 @@ const ConnectionSelect = (props) => {
                   Route starten{" "}
                 </button>
               
-            </div>))
+            </div>)
+            // )
         }
         {hideConnectionSelect? null : (
           backToSearchPageClicked ? ( <SearchPage/> ) : (
