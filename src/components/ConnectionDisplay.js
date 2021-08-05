@@ -157,6 +157,21 @@ const timeToDecimalAdd = (time) => {
   const [hours, minutes] = time.split(":");
   let additionalRandomMinutes =  props. additionalRandomMinutes;
   let tneu=Number(minutes)+ Number(additionalRandomMinutes);
+//   const [h, m] = time.split(":");
+//   let hours = h;
+//   let mins = m;
+//   let additionalRandomMinutes =  props. additionalRandomMinutes;
+//   let minsNeu=Number(mins)+ Number(additionalRandomMinutes);
+//   let dayChanged = false;
+//   if(minsNeu>59){
+//     mins= mins-60;
+//     if (hours>23) { 
+//       hours=0;
+//       dayChanged=true;
+//     }
+//   }
+//   return[(Number(hours) + Number(minsNeu) / 60), dayChanged ];
+// }
   return(Number(hours) + Number(tneu) / 60 );
 }
 
