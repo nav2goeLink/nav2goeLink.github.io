@@ -16,13 +16,10 @@ const End = (props) => {
           </div>
         </header>
         <div id="containerButtonEnd">
-          <button type="submit">Zurück auf Anfang</button>
-          <a id="aGreen" href="https://www.google.de">
-            2. App-Version Starten
-          </a>
           <a href="https://www.survio.com/survey/d/G9Q1M7L8V7J5L3I9V">
             Umfrage starten
           </a>
+          <button type="submit">Zurück auf Anfang</button>
         </div>
       </form>
     </div>

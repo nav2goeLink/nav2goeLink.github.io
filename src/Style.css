@@ -298,22 +298,15 @@ a {
   text-align: center;
   vertical-align: middle;
   padding-top: 8px;
-  margin-right: 1rem;
-}
-a:hover {
-  opacity: 0.8;
-}
-#aGreen {
-  background: green;
+  margin-right: 3rem;
 }
 #containerButtonEnd {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 #containerButtonEnd button {
   min-width: 200px;
-  margin-right: 1rem;
+  margin-right: 10px;
 }
 
 /* Error-Page */
@@ -548,7 +541,6 @@ a:hover {
     vertical-align: middle;
     padding-top: 8px;
     margin-right: 0;
-    margin-bottom: 0.5rem;
   }
   #containerButtonEnd {
     display: flex;
@@ -560,6 +552,6 @@ a:hover {
     width: 200px;
     height: 50px;
     margin-right: 0;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
 }
