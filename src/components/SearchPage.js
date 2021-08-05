@@ -153,7 +153,8 @@ const SearchPage = (props) => {
         </div>
       )}
       <div>
-        {searchClicked ? (  
+        {searchClicked ? ( 
+          // (loadingMessage? <p>...loading...</p> : 
           <ConnectionSelect
             onSetStartFormHidden={props.onSetStartFormHidden}
             onGoBack={() => {

@@ -130,7 +130,7 @@ const outputWithoutYear= (date) => {
 const ConnectionDisplay = (props) => {
   const [clickedEnd, setEndClicked] = useState(false);
   const [hideConnectionDisplay, setHideConnectionDisplay] = useState(false);
-  const [loadingMessage, setloadingMessage] = useState(true);
+  // const [loadingMessage, setloadingMessage] = useState(true);
   const [changeDay, setChangeDay] = useState(false);
 
   {console.log( props.departureDay, props.departureStop)};
@@ -141,14 +141,14 @@ const ConnectionDisplay = (props) => {
   const endClickHandler = () => {
     setEndClicked(true);
   };
-// // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//    setHideConnectionDisplay(false);
-//    setloadingMessage(false);
-//     }, 1000);
-//     return () => clearTimeout(timer);
-//   }, []);
+// ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //  setHideConnectionDisplay(false);
+  //  setloadingMessage(false);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
 //   --------------------------(nicht ganz so wichtige) Ideen für Eingabezeit + paar Sekunden als Losfahrzeit anzeigen--------------------
 
@@ -157,21 +157,6 @@ const timeToDecimalAdd = (time) => {
   const [hours, minutes] = time.split(":");
   let additionalRandomMinutes =  props. additionalRandomMinutes;
   let tneu=Number(minutes)+ Number(additionalRandomMinutes);
-//   const [h, m] = time.split(":");
-//   let hours = h;
-//   let mins = m;
-//   let additionalRandomMinutes =  props. additionalRandomMinutes;
-//   let minsNeu=Number(mins)+ Number(additionalRandomMinutes);
-//   let dayChanged = false;
-//   if(minsNeu>59){
-//     mins= mins-60;
-//     if (hours>23) { 
-//       hours=0;
-//       dayChanged=true;
-//     }
-//   }
-//   return[(Number(hours) + Number(minsNeu) / 60), dayChanged ];
-// }
   return(Number(hours) + Number(tneu) / 60 );
 }
 
@@ -199,9 +184,7 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
       ) : ( 
         <div className="container-verbindung">
           {/* {endClickHandler ? null:  */}
-          {hideConnectionDisplay ? null
-          // (loadingMessage? <p>...loading...</p> : null) 
-          : (
+          {hideConnectionDisplay ? null: (
             <form>
               <h1 className="Verbindung-header">Verbindung</h1>
               {/* <Bild/> 
@@ -298,9 +281,7 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
       ) : (
         <div className="container-verbindung">
           {/* {endClickHandler ? null:  */}
-          {hideConnectionDisplay ? null
-          // (loadingMessage? <p>...loading...</p> : null)
-           : (
+          {hideConnectionDisplay ? null  : (
             <form>
               <h1 className="Verbindung-header">Verbindung</h1>
               {/* <Bild/> 

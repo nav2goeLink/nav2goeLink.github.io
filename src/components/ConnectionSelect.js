@@ -35,7 +35,7 @@ const durations = () => {
 const ConnectionSelect = (props) => {
   const [cheaperConnectionStarted , setCheaperConnectionStarted] = useState(false);
   const [fasterConnectionStarted, setFasterConnectionStarted] = useState(false);
-  const [backToSearchPageClicked , setBackToSearchPageClicked] = useState(true);
+  const [backToSearchPageClicked , setBackToSearchPageClicked] = useState(false);
   const [hideConnectionSelect, setHideConnectionSelect] = useState(false);
   const [upperButtonFirstPressed, setUpperButtonFirstPressed] = useState(false);
   const [lowerButtonFirstPressed, setLowerButtonFirstPressed] = useState(false);
@@ -103,9 +103,7 @@ const ConnectionSelect = (props) => {
   return (
     <div> 
       <form>
-        {hideConnectionSelect? null :
-          // loadingMessage? <p>...loading...</p> : null)  
-           ( 
+        {hideConnectionSelect? null : ( 
           <div>   
             <h1 className="logo">Nav2Gö</h1>
             <h1>Verbindungsauswahl</h1>
@@ -127,7 +125,7 @@ const ConnectionSelect = (props) => {
               </div>
               </div>
             </div>
-          </div> )
+          </div>)
       }
       {fasterConnectionStarted  ? (
             <ConnectionDisplay
@@ -149,8 +147,7 @@ const ConnectionSelect = (props) => {
               setLowerButtonFirstPressed(false);}
           }
             /> 
-            ) : ( lowerButtonFirstPressed? null :
-              //  (loadingMessage? null : 
+            ) : ( lowerButtonFirstPressed? null : (
               <div className="connectionChoice containerConnectionButton">
                 <button
                 className="button-select"
@@ -161,8 +158,7 @@ const ConnectionSelect = (props) => {
                   {" "}
                   Route starten{" "}
                 </button> 
-              </div>) 
-              // )
+              </div>) )
         }
       </form>
     {hideConnectionSelect? null : (
@@ -204,8 +200,7 @@ const ConnectionSelect = (props) => {
               setLowerButtonFirstPressed(false);}
           }
             />
-            ) : ( upperButtonFirstPressed? null :  
-              // (loadingMessage? null : 
+            ) : ( upperButtonFirstPressed? null :  (
             <div className="connectionChoice containerConnectionButton">
               
                 <button
@@ -218,8 +213,7 @@ const ConnectionSelect = (props) => {
                   Route starten{" "}
                 </button>
               
-            </div>)
-            // )
+            </div>))
         }
         {hideConnectionSelect? null : (
           backToSearchPageClicked ? ( <SearchPage/> ) : (
