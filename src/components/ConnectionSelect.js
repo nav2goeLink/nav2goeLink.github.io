@@ -83,7 +83,7 @@ const ConnectionSelect = (props) => {
     FahrtkostenGuenstig = Fahrtkosten;
     return (Math.round(FahrtkostenGuenstig));
   }
- console.log("daparture day." + props.departureDay.toString());
+
 
  // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
 //  useEffect(() => {
@@ -105,7 +105,6 @@ const ConnectionSelect = (props) => {
       <form>
         {hideConnectionSelect? null : ( 
           <div>   
-            <h1 className="logo">Nav2Gö</h1>
             <h1>Verbindungsauswahl</h1>
             <div className="connectionChoice">
             {/* {timeMinRandomizer(durationMin)};
@@ -115,7 +114,7 @@ const ConnectionSelect = (props) => {
               <h2>Günstigste Verbindung</h2>
               <div id="containerFastestConnection">
                 <div className="verbindung-textfeld">
-                    Fahrtkosten: { (Fahrtkostenrechner(FahrtkostenGuenstig))} .00 € </div>
+                    Fahrtkosten: { (Fahrtkostenrechner(FahrtkostenGuenstig))}.00 € </div>
                 <div className="verbindung-textfeld">Dauer:  {displayedDurations[0]} h {displayedDurations[1]} min</div>
                 <div className="verbindung-textfeld">Umstiege: 1</div>
                 <div className="umstiegIcons">
@@ -166,7 +165,7 @@ const ConnectionSelect = (props) => {
           <h2>Schnellste Verbindung</h2>
           <div id="containerFastestConnection">
             <div className="verbindung-textfeld">
-              Fahrtkosten: {Fahrtkostenrechner(FahrtkostenGuenstig)} .00 € </div>
+              Fahrtkosten: {Fahrtkostenrechner(FahrtkostenGuenstig)}.00 € </div>
                {/* Fahrtkosten: {Fahrtkostenrechner(FahrtkostenGuenstig)}.00 €</div> */}
             <div className="verbindung-textfeld">Dauer: {displayedDurations[2]} h {displayedDurations[3]} min </div>
             <div className="verbindung-textfeld">Umstiege: 2</div>
