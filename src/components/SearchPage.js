@@ -43,14 +43,21 @@ const SearchPage = (props) => {
         title: "Falsche Daten",
         message: "Bitte geben Sie einen passenden Start- und Zielort ein!",
       });
-      return (errorOccured = true);  // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
+      return (errorOccured = true);  
     }
     if (departureTime === "" || departureDay === "") {
       setError({
         title: "Falsche Daten",
         message: "Bitte geben Sie einen Abfahrtstag und eine Abfahrtszeit an!",
       });
-      return (errorOccured = true); // nur zum Bearbeiten der Datums/zeitproleme: zurücksetzen!
+      return (errorOccured = true); 
+    }
+    if(departureStop === destinationStop){
+      setError({
+        title: "Falsche Daten",
+        message: "Start- und Zielort dürfen nicht identisch sein!",
+      });
+      return (errorOccured = true); 
     }
   };
 
@@ -155,7 +162,7 @@ const SearchPage = (props) => {
       <div>
         {searchClicked ? ( 
           // (loadingMessage? <p>...loading...</p> : 
-          <ConnectionSelect
+          <ConnectionDisplay
             onSetStartFormHidden={props.onSetStartFormHidden}
             onGoBack={() => {
               setHideSearchFields(false);
@@ -165,6 +172,9 @@ const SearchPage = (props) => {
             destinationStop={destinationStop}
             departureDay={departureDay}
             departureTime={departureTime}
+            durationH = {0}
+            durationMin = {42}
+            additionalRandomMinutes= {3}
           />
         ) : (
           <div className="buttons-search-page">
