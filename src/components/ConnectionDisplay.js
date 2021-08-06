@@ -172,6 +172,13 @@ let splittedDurationsCheap = durationSplitCheap(props.durationH, props.durationM
 let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMin);
 
   return (
+    clickedEnd ? (
+      <End 
+      // onGoBack={() => {
+      // setHideConnectionDisplay(false);
+      // setEndClicked(false);}
+      />
+    ) : (
     <div className="container-verbindung">
     {/* {endClickHandler ? null:  */}
     {hideConnectionDisplay ? null  : (
@@ -237,6 +244,7 @@ let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMi
       </form>
     )}
   </div>
+  )
   );
 };
 
