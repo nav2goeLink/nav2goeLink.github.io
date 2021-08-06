@@ -5,7 +5,6 @@ import Verbindungsanzeige from "./ConnectionDisplay.js";
 import StartPage from "./StartPage.js";
 import { BsArrowLeftRight } from "react-icons/bs";
 import ConnectionDisplay from "./ConnectionDisplay.js";
-import ConnectionSelect from "./ConnectionSelect.js";
 
 const SearchPage = (props) => {
   // useState
