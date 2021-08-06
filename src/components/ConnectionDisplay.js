@@ -172,106 +172,71 @@ let splittedDurationsCheap = durationSplitCheap(props.durationH, props.durationM
 let splittedDurationsFast = durationSplitFast( props.durationH, props.durationMin);
 
   return (
-    <div>
-    {  <div>
-      {clickedEnd ? (
-        <End 
-        // onGoBack={() => {
-        // setHideConnectionDisplay(false);
-        // setEndClicked(false);}
-        />
-      ) : ( 
-        <div className="container-verbindung">
-          {/* {endClickHandler ? null:  */}
-          {hideConnectionDisplay ? null: (
-            <form>
-              <h1 className="Verbindung-header">Verbindung</h1>
-              {/* <Bild/> 
-              <img src={require('.../public/busemoji.png')} />
-              */}
-            <h2 className="h2ConnectionDisplay">Schritt 1</h2>
-                <div className="container-ConnectionDisplay">
-                  <div className="verbindung-textfeld">
-                    {" "}
-                    <p>Abfahrt:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {newDepartureTime}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">Linie: 50</div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsFast[0]))}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Abfahrt an Haltestelle:</p> {props.departureStop}{" "}
-                  </div>
-                  <div className="busIcon">
-                  <FaBus size="3rem" color="white" />
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft an Haltestelle:</p> Weender Straße-Ost {" "}
-                  </div>
-              </div>
-              <h2 className="h2ConnectionDisplay">Schritt 2</h2>
-                <div className="container-ConnectionDisplay">
-                  <div className="verbindung-textfeld">
-                    {" "}
-                    <p>Abfahrt:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {" "} {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsFast[0]+splittedDurationsFast[1]))}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">Verfügbare Scooter: 3</div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {" "} {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsFast[0]+splittedDurationsCheap[1]+splittedDurationsFast[2]))}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Abfahrt an Haltestelle:</p> Weender Straße-Ost {" "}
-                  </div>
-                  <div className="busIcon">
-                  <GiKickScooter size="3rem" color="white" />
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft an Haltestelle:</p> Neues Rathaus {" "}
-                  </div>
-              </div>
-              <h2 className="h2ConnectionDisplay">Schritt 3</h2>
-                <div className="container-ConnectionDisplay">
-                  <div className="verbindung-textfeld">
-                    {" "}
-                    <p>Abfahrt:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {" "} {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsFast[0]+splittedDurationsCheap[1]+splittedDurationsFast[2]+splittedDurationsFast[3]))}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">Linie: 12</div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft:</p> {outputWithoutYear(addDay(props.departureDay, changeDay))} um {" "} {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsFast[0]+splittedDurationsCheap[1]+splittedDurationsFast[2]+splittedDurationsFast[3]+splittedDurationsFast[4]))}{" "}
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Abfahrt an Haltestelle:</p> Neues Rathaus {" "}
-                  </div>
-                  <div className="busIcon">
-                  <FaBus size="3rem" color="white" />
-                  </div>
-                  <div className="verbindung-textfeld">
-                    <p>Ankunft an Haltestelle:</p> {props.destinationStop}{" "}
-                  </div>
-              </div>
-              <div className="buttons-verbindung">
-                <button
-                  className="button"
-                  onClick={backClickHandler}
-                  type="submit"
-                >
-                  {" "}
-                  Zurück
-                </button>
-                <button className="button" onClick={() => {endClickHandler(); props.onSetStartFormHidden(true); } }>
-                  {" "}
-                  Test Beenden?
-                </button>
-              </div>
-            </form>
-          )}
+    <div className="container-verbindung">
+    {/* {endClickHandler ? null:  */}
+    {hideConnectionDisplay ? null  : (
+      <form>
+        <h1 className="Verbindung-header">Verbindung</h1>
+        {/* <Bild/> 
+        <img src={require('.../public/busemoji.png')} />
+        */}
+     <h2 className="h2ConnectionDisplay">Schritt 1</h2>
+        <div className="container-ConnectionDisplay">
+          <div className="verbindung-textfeld">
+            {" "}
+            <p>Abfahrt:</p> {outputWithoutYear(props.departureDay)} um {newDepartureTime}{" "}
+          </div>
+          <div className="verbindung-textfeld">Linie: 50</div>
+          <div className="verbindung-textfeld">
+            <p>Ankunft:</p> {outputWithoutYear(props.departureDay)} um {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsCheap[0]))} {" "}
+          </div>
+          <div className="verbindung-textfeld">
+            <p>Abfahrt an Haltestelle:</p> {props.departureStop}{" "}
+          </div>
+          <div className="busIcon">
+          <FaBus size="3rem" color="white" />
+          </div>
+          <div className="verbindung-textfeld">
+            <p>Ankunft an Haltestelle:</p> Weender Straße-Ost {" "}
+          </div>
         </div>
-      )}
-      ;
-    </div> 
-    } 
-    )
-    </div>
+        <h2 className="h2ConnectionDisplay">Schritt 2</h2>
+        <div className="container-ConnectionDisplay">
+          <div className="verbindung-textfeld">
+            {" "}
+            <p>Abfahrt:</p> {outputWithoutYear(props.departureDay)} um {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsCheap[0]+ splittedDurationsCheap[1]))}{" "}
+          </div>
+          <div className="verbindung-textfeld">Linie: 18</div>
+          <div className="verbindung-textfeld">
+            <p>Ankunft:</p> {outputWithoutYear(props.departureDay)} um {addDurationToTime(newDepartureTime, Number(0), Number(splittedDurationsCheap[0]+ splittedDurationsCheap[1]+ splittedDurationsCheap[2]))}{" "}
+          </div>
+          <div className="verbindung-textfeld">
+            <p>Abfahrt an Haltestelle:</p> Weender Straße-Ost {" "}
+          </div>
+          <div className="busIcon">
+          <FaBus size="3rem" color="white" />
+            </div>
+          <div className="verbindung-textfeld">
+            <p>Ankunft an Haltestelle:</p> {props.destinationStop}{" "}
+          </div>
+        </div>
+        <div className="buttons-verbindung">
+          <button
+            className="button"
+            onClick={backClickHandler}
+            type="submit"
+          >
+            {" "}
+            Zurück
+          </button>
+          <button className="button" onClick={() => {endClickHandler(); props.onSetStartFormHidden(true); } }>
+            {" "}
+            Test Beenden?
+          </button>
+        </div>
+      </form>
+    )}
+  </div>
   );
 };
 
