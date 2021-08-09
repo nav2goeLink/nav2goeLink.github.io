@@ -42,21 +42,21 @@ const SearchPage = (props) => {
         title: "Falsche Daten",
         message: "Bitte geben Sie einen passenden Start- und Zielort ein!",
       });
-      return (errorOccured = true);  
+      return (errorOccured = true);
     }
     if (departureTime === "" || departureDay === "") {
       setError({
         title: "Falsche Daten",
         message: "Bitte geben Sie einen Abfahrtstag und eine Abfahrtszeit an!",
       });
-      return (errorOccured = true); 
+      return (errorOccured = true);
     }
-    if(departureStop === destinationStop){
+    if (departureStop === destinationStop) {
       setError({
         title: "Falsche Daten",
         message: "Start- und Zielort dürfen nicht identisch sein!",
       });
-      return (errorOccured = true); 
+      return (errorOccured = true);
     }
   };
 
@@ -103,13 +103,13 @@ const SearchPage = (props) => {
     setDepartureTime(event.target.value);
   };
 
-   // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
-//  useEffect(() => {
-//   const timer = setTimeout(() => {
-//  setloadingMessage(false);
-//   }, 1000);
-//   return () => clearTimeout(timer);
-// }, []);
+  // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
+  //  useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //  setloadingMessage(false);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <React.Fragment>
@@ -126,6 +126,7 @@ const SearchPage = (props) => {
           <div className="container-searchpage">
             <input
               list="haltestellen"
+              spellcheck="false"
               type="text"
               value={departureStop}
               onChange={departureChangeHandler}
@@ -138,6 +139,7 @@ const SearchPage = (props) => {
             </button>
             <input
               list="haltestellen"
+              spellCheck="false"
               type="text"
               value={destinationStop}
               onChange={destinationStopHandler}
@@ -159,8 +161,8 @@ const SearchPage = (props) => {
         </div>
       )}
       <div>
-        {searchClicked ? ( 
-          // (loadingMessage? <p>...loading...</p> : 
+        {searchClicked ? (
+          // (loadingMessage? <p>...loading...</p> :
           <ConnectionDisplay
             onSetStartFormHidden={props.onSetStartFormHidden}
             onGoBack={() => {
@@ -171,9 +173,9 @@ const SearchPage = (props) => {
             destinationStop={destinationStop}
             departureDay={departureDay}
             departureTime={departureTime}
-            durationH = {0}
-            durationMin = {42}
-            additionalRandomMinutes= {3}
+            durationH={0}
+            durationMin={42}
+            additionalRandomMinutes={3}
           />
         ) : (
           <div className="buttons-search-page">
@@ -204,41 +206,40 @@ const SearchPage = (props) => {
         )}
       </div>
       <datalist id="haltestellen">
-        <option value="Hauptbahnhof"></option>
+        <option value="An der Lutte"></option>
         <option value="Auf dem Hagen"></option>
-        <option value="Tulpenweg"></option>
-        <option value="Schützenplatz"></option>
-        <option value="Landgericht/ Bahnhof"></option>
-        <option value="Bürgerstraße"></option>
-        <option value="Hiroshimaplatz"></option>
-        <option value="Schillerstraße"></option>
-        <option value="Reinholdstraße"></option>
-        <option value="Fritz-Straße"></option>
-        <option value="Treuenhagen"></option>
         <option value="Baumweg"></option>
-        <option value="Stadtstieg"></option>
-        <option value="Kiessee"></option>
-        <option value="Teichstraße"></option>
         <option value="Bornbreite"></option>
-        <option value="Gehrenring"></option>
-        <option value="Hardtweg"></option>
-        <option value="Tammstraße"></option>
-        <option value="Klinikum"></option>
-        <option value="Krugstraße"></option>
+        <option value="Bürgerstraße"></option>
         <option value="Deisterstraße"></option>
         <option value="Elmweg"></option>
-        <option value="Sollstraße"></option>
-        <option value="Waldstraße"></option>
-        <option value="Siekweg"></option>
-        <option value="Klosterweg"></option>
-        <option value="Lutteranger"></option>
-        <option value="An der Lutte"></option>
+        <option value="Fritz-Straße"></option>
+        <option value="Gehrenring"></option>
         <option value="Grüner Weg"></option>
+        <option value="Hauptbahnhof"></option>
+        <option value="Hardtweg"></option>
+        <option value="Hiroshimaplatz"></option>
+        <option value="Kiessee"></option>
+        <option value="Klinikum"></option>
+        <option value="Klosterweg"></option>
         <option value="Kreuzbergring"></option>
+        <option value="Krugstraße"></option>
+        <option value="Landgericht/ Bahnhof"></option>
+        <option value="Lutteranger"></option>
+        <option value="Reinholdstraße"></option>
+        <option value="Schillerstraße"></option>
+        <option value="Schützenplatz"></option>
+        <option value="Siekweg"></option>
+        <option value="Sollstraße"></option>
+        <option value="Stadtstieg"></option>
+        <option value="Tammstraße"></option>
+        <option value="Teichstraße"></option>
+        <option value="Treuenhagen"></option>
+        <option value="Tulpenweg"></option>
+        <option value="Waldstraße"></option>
       </datalist>
     </React.Fragment>
   );
 };
 
 export default SearchPage;
-
