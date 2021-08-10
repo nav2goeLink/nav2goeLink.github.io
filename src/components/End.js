@@ -15,7 +15,8 @@ const End = (props) => {
               <br></br>Vielen Dank für die Teilnahme!{" "}
             </p>
             <p>
-              Klicken Sie jetzt bitte auf den Button, um zur Umfrage zu gelangen
+              Klicken Sie jetzt bitte auf den Button, um zur zweiten App zu
+              gelangen
               {/* <p> Klicken Sie jetzt bitte auf den Button, um zur zweiten App-Version zu gelangen */}
               <br></br>
               <br></br>
@@ -23,12 +24,10 @@ const End = (props) => {
           </div>
         </header>
         <div id="containerButtonEnd">
-          <a href="https://www.survio.com/survey/d/F9A7E9J9M9I6R5L9O">
+          {/* <a href="https://www.survio.com/survey/d/F9A7E9J9M9I6R5L9O">
             Umfrage starten
-          </a>
-          {/* <a href="https://morza95.github.io">
-            App-Version 2 starten
           </a> */}
+          <a href="https://morza95.github.io">App-Version 2 starten</a>
           {/* <button type="submit">Zurück auf Anfang</button> */}
         </div>
       </form>

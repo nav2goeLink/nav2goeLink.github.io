@@ -15,10 +15,10 @@ const SearchPage = (props) => {
   const [departureTime, setDepartureTime] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
   const [error, setError] = useState();
-  const [hideSearchFields, setHideSearchFields] = useState(false);
+  const [hideSearchFields, setHideSearchFields] = useState(true);
   const departureInputRef = useRef();
   const destinationInputRef = useRef();
-  // const [loadingMessage, setloadingMessage] = useState(true);
+  const [loadingMessage, setloadingMessage] = useState(true);
 
   let errorOccured = false;
 
@@ -103,15 +103,18 @@ const SearchPage = (props) => {
     setDepartureTime(event.target.value);
   };
 
-  // ------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
-  //  useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //  setloadingMessage(false);
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  //------------------------------- FÜR DIE VERZÖGERUNG---------------------------------------------------------------
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setloadingMessage(false);
+      setHideSearchFields(false);
+    }, 7790);
+    return () => clearTimeout(timer);
+  }, []);
 
-  return (
+  return loadingMessage ? (
+    <p>...loading...</p>
+  ) : (
     <React.Fragment>
       {error && (
         <ErrorModal
