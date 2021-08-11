@@ -573,7 +573,7 @@ a:hover {
   /* Endseite */
   a {
     text-decoration: none;
-    background: red;
+    background: var(--primary-color);
     color: #fff;
     /* align-items: center; */
     border: 3px #333 solid;
